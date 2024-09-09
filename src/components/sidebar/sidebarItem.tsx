@@ -6,7 +6,7 @@ function SidebarItem({ heading, children }: Props) {
   return (
     <div className="flex gap-4 items-center">
         <div>{children}</div>
-        <p className="hiden sm:block text-white ">{heading}</p>
+        <p className="hidden sm:block text-white ">{heading}</p>
     </div>
   )
 }
