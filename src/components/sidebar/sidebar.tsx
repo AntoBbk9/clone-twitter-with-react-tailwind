@@ -1,8 +1,8 @@
 import Button from "../button/button";
 import ButtonMobile from "../button/buttonMobile";
 import BookmarksIcon from "./bookmarksIcon";
-import CommunautiesIcon from "./communautiesIcon";
-import GrokIcon from "./grokIcon";
+// import CommunautiesIcon from "./communautiesIcon";
+// import GrokIcon from "./grokIcon";
 import HomeIcon from "./home-icon";
 import ListIcon from "./listIcon";
 import MessageIcon from "./messageIcon";
@@ -15,24 +15,24 @@ import TwitterIcon from "./twitter-icon";
 
 function Sidebar() {
     return (
-        <div className="flex flex-col justify-between gap-96">
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-11 border-r border-gray-700 p-4 h-screen sticky top-0">
+        <div className="flex flex-col gap-5">
         <TwitterIcon />
         <SidebarItem children={<HomeIcon />} heading="Home"/>
         <SidebarItem children={<SearchIcon />} heading="Explore"/>
         <SidebarItem children={<NotificationIcon />} heading="Notifications"/>
         <SidebarItem children={<MessageIcon />} heading="Messages"/>
-        <SidebarItem children={<GrokIcon />} heading="Grok"/>
+        {/* <SidebarItem children={<GrokIcon />} heading="Grok"/> */}
         <SidebarItem children={<ListIcon />} heading="Lists"/>
         <SidebarItem children={<BookmarksIcon />} heading="Bookmarks"/>
-        <SidebarItem children={<CommunautiesIcon />} heading="Communities"/>
+        {/* <SidebarItem children={<CommunautiesIcon />} heading="Communities"/> */}
         <SidebarItem children={<ProfilIcon />} heading="Profile"/>
         <SidebarItem children={<MoreIcon />} heading="More"/>
-        <Button>Post</Button>
+        <Button size="primary">Post</Button>
         <ButtonMobile><svg className="py-3 px-3" fill="white"><g><path d="M23 3c-6.62-.1-10.38 2.421-13.05 6.03C7.29 12.61 6 17.331 6 22h2c0-1.007.07-2.012.19-3H12c4.1 0 7.48-3.082 7.94-7.054C22.79 10.147 23.17 6.359 23 3zm-7 8h-1.5v2H16c.63-.016 1.2-.08 1.72-.188C16.95 15.24 14.68 17 12 17H8.55c.57-2.512 1.57-4.851 3-6.78 2.16-2.912 5.29-4.911 9.45-5.187C20.95 8.079 19.9 11 16 11zM4 9V6H1V4h3V1h2v3h3v2H6v3H4z"></path></g></svg></ButtonMobile>
         </div>
            
-        <div className="flex gap-6 items-center">
+        <div className="flex gap-2 items-center">
             <img src="/image_twitter/Profile-Photo.png" alt="photo de profil" />
                 <div >
                         <div className="hidden sm:flex gap-3 items-center">

@@ -12,7 +12,7 @@ interface TweetProps {
 }
 const Tweet = ({ avatar, username, handle, time, content, image, numberLike, numberCommit, numberRetweet, numberDownload }: TweetProps) => {
   return (
-    <div className="border-b border-gray-500 p-4 flex">
+    <div className="border-b border-gray-700 p-4 flex">
       <div className="mr-4">
         <img
           src={avatar}
@@ -36,11 +36,11 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
 
         {image && (
           <div className="mt-2">
-            <img src={image} alt="Tweet" className="rounded-3xl w-full" />
+            <img src={image} alt="Tweet" className="rounded-3xl" />
           </div>
         )}
 
-        <div className="flex gap-24 mt-4 text-gray-500">
+        <div className="flex gap-12 mt-4 text-gray-500">
           <div className="flex gap-3 w-20">
             <button>
               <img src="/image_twitter/commentaire.png" alt="" />
@@ -48,7 +48,7 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
             <p className="text-gray-500">{numberCommit}</p>
           </div>
 
-          <div className="flex gap-3 w-20">
+          <div className="flex gap-1 w-14">
             <button>
               <img src="/image_twitter/retweet.png" alt="" />
             </button>
