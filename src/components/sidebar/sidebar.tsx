@@ -14,7 +14,7 @@ import TwitterIcon from "./twitter-icon";
 function Sidebar() {
     return (
         <div className="flex flex-col justify-between border-r border-grayColor p-4 h-screen sticky top-0">
-        <div className="flex flex-col gap-5 items-center sm:items-start">
+        <div className="flex flex-col gap-3 sm:gap-3 xl:gap-5 items-center sm:items-start">
         <TwitterIcon />
         <SidebarItem href="/home" children={<HomeIcon />} heading="Home"/>
         <SidebarItem href="/search" children={<SearchIcon />} heading="Explore"/>

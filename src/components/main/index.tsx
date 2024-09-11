@@ -4,7 +4,7 @@ import Tweet from "./tweet"
 
 function Main() {
   return (
-    <div className="w-[40rem] border-r border-grayColor sm:border-none">
+    <div className="w-full sm:w-[40rem] border-r border-grayColor sm:border-none">
         <div className="flex sm:justify-between p-4 border-b border-grayColor">
             <p className="text-white">Home</p>
             <img className="hidden sm:block" src="/image_twitter/Vector.svg" alt="" />

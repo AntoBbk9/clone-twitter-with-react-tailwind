@@ -26,9 +26,9 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
           <div className="flex items-center gap-2">
             <span className="font-bold text-white text-[15px]">{username}</span>
             <img src="/image_twitter/badge.png" alt="" />
-            <span className="text-graycolor2">@{handle}</span>
-            <span className="text-graycolor2">·</span>
-            <span className="text-graycolor2">{time}</span>
+            <span className="text-graycolor2 text-[15px]">@{handle}</span>
+            <span className="text-graycolor2 text-[15px]">·</span>
+            <span className="text-graycolor2 text-[15px]">{time}</span>
           </div>
         </div>
 
@@ -45,28 +45,28 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
             <button>
               <img src="/image_twitter/commentaire.png" alt="" />
             </button>
-            <p className="text-graycolor2">{numberCommit}</p>
+            <p className="text-graycolor2 text-[15px]">{numberCommit}</p>
           </div>
 
-          <div className="flex gap-1 w-14">
+          <div className="flex gap-1 w-16">
             <button>
               <img src="/image_twitter/retweet.png" alt="" />
             </button>
-            <p className="text-graycolor2">{numberRetweet}</p>
+            <p className="text-graycolor2 text-[15px]">{numberRetweet}</p>
           </div>
 
           <div className="flex gap-3 w-20">
             <button>
               <img src="/image_twitter/like.png" alt="" />
             </button>
-            <p className="text-graycolor2">{numberLike}</p>
+            <p className="text-graycolor2 text-[15px]">{numberLike}</p>
           </div>
 
           <div className="flex gap-3 w-24">
             <button>
             <img src="/image_twitter/téléchargerIcon.png" alt="" />
             </button>
-            <p className="text-graycolor2">{numberDownload}</p>
+            <p className="text-graycolor2 text-[15px]">{numberDownload}</p>
           </div>
 
         </div>
