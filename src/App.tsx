@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className='flex justify-center'>
+      <div className='flex sm:justify-center'>
         <Sidebar />
         <Main />
         <RigthBar />

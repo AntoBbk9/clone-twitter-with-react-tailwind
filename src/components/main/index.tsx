@@ -1,20 +1,21 @@
 import Button from "../button/button"
+import ButtonMobile from "../button/buttonMobile"
 import Tweet from "./tweet"
 
 function Main() {
   return (
-    <div className="w-[36rem]">
-        <div className="flex  justify-between p-4 border-b border-gray-700">
+    <div className="w-[40rem] border-r border-grayColor sm:border-none">
+        <div className="flex sm:justify-between p-4 border-b border-grayColor">
             <p className="text-white">Home</p>
             <img className="hidden sm:block" src="/image_twitter/Vector.svg" alt="" />
         </div>
         <div>
           <div className="flex gap-5 p-4 ">
             <img src="/image_twitter/Profile-Photo.png" alt="" />
-            <input type="text" placeholder="What's happening?" className="outline-none placeholder-gray-500 w-full border-none bg-black text-white" />
+            <input type="text" placeholder="What's happening?" className="outline-none placeholder-graycolor2 w-full border-none bg-black text-white" />
           </div>
 
-          <div className="flex justify-between border-b border-gray-700 p-4">
+          <div className="flex gap-20 sm:justify-between border-b border-grayColor p-4">
             <div className="h-10 flex justify-center items-center">
               <div className="flex gap-5 pl-16">
                 <img src="/image_twitter/imageIcon.png" alt="" />
@@ -25,11 +26,13 @@ function Main() {
               </div>
             </div>
             <div>
-              <Button size="secondary">Tweet</Button>
+              <Button color="blue" size="secondary" className="hidden sm:block">Post</Button>
+              <ButtonMobile className="block sm:hidden">Post</ButtonMobile>
             </div>
           </div> 
         </div>
         <div>
+
         <Tweet
           avatar="/image_twitter/image.png"
           username="CNN"
