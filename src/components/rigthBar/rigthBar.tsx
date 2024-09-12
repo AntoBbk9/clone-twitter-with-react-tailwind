@@ -3,7 +3,7 @@ import WhoToFlowItem from "./whoToFlowItem"
 
 function RigthBar() {
   return (
-    <div className="hidden sm:block border-l border-grayColor p-4 w-[28rem]">
+    <div className="hidden lg:block border-l border-grayColor p-4 w-[28rem]">
       <div className="flex items-center h-10 rounded-full bg-grayColor p-4 gap-2 placeholder-graycolor2">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" className="text-graycolor2"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
         <input type="search" name="" id="" placeholder="Search Twitter" className="h-10 rounded-full bg-grayColor p-4 outline-none placeholder-graycolor2"/>

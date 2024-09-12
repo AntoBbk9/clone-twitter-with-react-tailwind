@@ -8,12 +8,12 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
 function Button({ children, size, color }: Props) {
   const sizeStyles = size === 'primary' 
   ? "w-48"
-  : "w-24"
+  : "w-20"
 
   const variantColor = color === 'blue' ? "bg-blue text-white" : "bg-white text-black"
   return (
     <button
-      className={`hidden sm:block md:block lg:block text-xs font-bold h-12 rounded-full ${variantColor} ${sizeStyles}`}
+      className={`hidden lg:block text-xs font-bold h-8 rounded-full ${variantColor} ${sizeStyles}`}
     >
       {children}
     </button>
