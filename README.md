@@ -1,6 +1,4 @@
-# React + TypeScript + Vite
-
-# Twitter Clone
+# Clone X with React and tailwind
 
 Ce projet est un clone de Twitter développé en utilisant **React** et **Tailwind CSS**. Il a pour but de reproduire les fonctionnalités de base de Twitter avec une interface utilisateur moderne et responsive. Ce document décrit comment exécuter l'application localement et présente les principaux choix techniques.
 
@@ -73,6 +71,6 @@ Les composants sont organisés dans des dossiers distincts au sein du répertoir
 - `ButtonMobile`: Boutons interactifs avec différentes tailles et icônes pour mobiles.
 - etc.
 
-### 4. **Responsiveness**
+### 4. **Responsive**
 
 L'application a été conçue avec une approche **responsive**. Les composants sont ajustés pour être compatibles avec les petits écrans (smartphones) comme avec les plus grands (ordinateurs). Tailwind facilite cette adaptation grâce à ses classes utilitaires responsives comme `md:w-full`, `sm:hidden`, etc.
