@@ -1,12 +1,16 @@
 import { HTMLAttributes } from "react";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
+  size: "primary" | "secondary";
 }
 
-function ButtonMobile({ children }: Props) {
+function ButtonMobile({ children, size  }: Props) {
+  const sizeStyles = size === 'primary' 
+  ? "w-12 h-12"
+  : "w-20 h-8"
   return (
     <button
-      className={`block sm:hidden items-center justify-center text-xs font-bold w-12 h-12 rounded-full bg-blue text-white`}>
+      className={`block lg:hidden items-center justify-center text-xs font-bold ${sizeStyles} rounded-full bg-blue text-white`}>
       {children}
     </button>
   );
