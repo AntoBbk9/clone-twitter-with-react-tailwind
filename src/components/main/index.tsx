@@ -4,7 +4,7 @@ import Tweet from "./tweet"
 
 function Main() {
   return (
-    <div className="w-full sm:w-[40rem] border-r border-grayColor sm:border-none">
+    <div className="w-full sm:w-[40rem] border-x border-grayColor">
         <div className="flex sm:justify-between p-4 border-b border-grayColor">
             <p className="text-white">Home</p>
             <img className="hidden sm:block" src="/image_twitter/Vector.svg" alt="" />
@@ -27,7 +27,7 @@ function Main() {
             </div>
             <div>
               <Button color="blue" size="secondary" className="hidden sm:block">Post</Button>
-              <ButtonMobile className="block sm:hidden">Post</ButtonMobile>
+              <ButtonMobile size="secondary" className="block sm:hidden">Post</ButtonMobile>
             </div>
           </div> 
         </div>
