@@ -23,6 +23,9 @@ function Sidebar() {
                     <SidebarItem href="/search" children={<SearchIcon />} />
                     <SidebarItem href="/notification" children={<NotificationIcon />} />
                     <SidebarItem href="/message" children={<MessageIcon />} />
+                    <SidebarItem href="/list" children={<ListIcon />} heading="Lists" />
+                    <SidebarItem href="/bookmarks" children={<BookmarksIcon />} heading="Bookmarks" />
+
                 </div>
                 <div>
                     <ButtonMobile size="primary">
