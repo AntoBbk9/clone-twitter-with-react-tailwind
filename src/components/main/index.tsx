@@ -6,10 +6,10 @@ import Tweet from "./tweet"
 function Main() {
   return (
     <div className="w-full sm:w-[40rem] border-x border-grayColor">
-        <div className="flex sm:justify-between p-4 border-b border-grayColor">
+        <div className="flex sm:justify-between sm:p-4 border-b border-grayColor">
             <p className="hidden md:block text-white">Home</p>
 
-            <div className="flex md:hidden gap-32 items-center">
+            <div className="flex md:hidden gap-32 items-center bg-black w-full p-4">
               <img src="/image_twitter/Profile-Photo.png" alt="photo de profil" />
               <TwitterIcon />
               <div>
