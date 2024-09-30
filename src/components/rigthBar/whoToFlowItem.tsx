@@ -18,8 +18,8 @@ function WhoToFlowItem({ image, username, handle }: WhoToFlowItem) {
                 <span className="text-graycolor2 text-[15px]">@{handle}</span>
             </div>
         </div>
-        <Button size="secondary" color="white" className="text-[15px]">Follow</Button>
-    </div>
+        <Button color="white" size="secondary">Follow</Button>
+        </div>
   )
 }
 
