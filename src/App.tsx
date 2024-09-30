@@ -1,19 +1,18 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import Main from './components/main'
-import RigthBar from './components/rigthBar/rigthBar'
-import Sidebar from './components/sidebar/sidebar'
+import Home from './pages/home'
+import Profile from './pages/profile'
 
 function App() {
  
 
   return (
-    <>
-      <div className='flex sm:justify-center'>
-        <Sidebar />
-        <Main />
-        <RigthBar />
-      </div>
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/:username" element={<Profile />} />
+    </Routes>
+    </BrowserRouter>
   )
 }
 
