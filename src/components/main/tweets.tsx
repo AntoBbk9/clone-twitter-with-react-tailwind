@@ -18,7 +18,7 @@ const tweetsData = [
       content: "Gardening boomed during the pandemic. Six Black writers share how it has helped them re-establish, and reimagine, a connection to cultivation and the land.",
       image: "/image_twitter/image-3.png",
       numberLike: "19",
-      numberCommit: "48",
+      numberComment: "48",
       numberRetweet: "482",
       numberDownload: ""
     },

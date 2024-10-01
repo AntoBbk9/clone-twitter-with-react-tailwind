@@ -56,7 +56,7 @@ function Main() {
             content={tweet.content}
             image={tweet.image}
             numberLike={tweet.numberLike}
-            numberCommit={tweet.numberCommit}
+            numberComment={tweet.numberComment}
             numberRetweet={tweet.numberRetweet}
             numberDownload={tweet.numberDownload}
           />
