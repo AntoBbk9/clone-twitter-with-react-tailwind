@@ -1,4 +1,4 @@
-import Main from "../components/main"
+import Main from "../components/tweet"
 import RigthBar from "../components/rigthBar/rigthBar"
 import Sidebar from "../components/sidebar/sidebar"
 

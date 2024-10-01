@@ -13,7 +13,9 @@ function Sidebar() {
           <SidebarItem href="/search" children={<Icon name='search'  />} />
           <SidebarItem href="/notification" children={<Icon name='notification' />} />
           <SidebarItem href="/message" children={<Icon name='message' />} />
-          <SidebarItem href="/list" children={<Icon name='profil' />} heading="Lists" />
+          <Link to='/:username'>
+            <SidebarItem href="/list" children={<Icon name='profil' />} heading="Lists" />
+          </Link>
           <SidebarItem href="/bookmarks" children={<Icon name='bookmarks'/>} heading="Bookmarks" />
         </div>
 
@@ -39,7 +41,9 @@ function Sidebar() {
           <SidebarItem href="/message" children={<Icon name='message' />} heading="Messages" />
           <SidebarItem href="/list" children={<Icon name='lists' />} heading="Lists" />
           <SidebarItem href="/bookmarks" children={<Icon name='bookmarks' />} heading="Bookmarks" />
-          <SidebarItem href="/profil" children={<Icon name='profil' />} heading="Profile" />
+          <Link to='/:username'>
+            <SidebarItem href="/:username" children={<Icon name='profil' />} heading="Profile" />
+          </Link>
           <SidebarItem href="/more" children={<Icon name='more' />} heading="More" />
           <div className="hidden lg:block">
             <Button color="blue" size="primary">Post</Button>

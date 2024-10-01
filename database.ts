@@ -3,26 +3,29 @@ export const DB = [
       userId: 1,
       username: 'john_doe',
       name: 'John Doe',
-      bio: 'Tech enthusiast and coffee lover. Tweets about tech, travel, and life.',
+      bio:  'Tech enthusiast and coffee lover. Tweets about tech, travel, and life.',
       profilePicture: 'https://randomuser.me/api/portraits/men/1.jpg',
       followersCount: 250,
       followingCount: 180,
       tweets: [
         {
           tweetId: 1,
-          content: 'Just launched my new project! Excited to share it with everyone. #launch',
-          createdAt: '2024-09-30T12:00:00Z',
+          content: `Anyone else excited about the new React features? 🛠️ I've been experimenting with the latest updates, and I must say, the improvements in state management are a game-changer! Can’t wait to implement them in my current projects. #ReactJS #TechTalk #WebDev`,
+          createdAt: '7h',
           likes: 25,
           retweets: 10,
           comments: 5,
+          image: '/image_twitter/image-3.png',
+          numberShare: 0,
         },
         {
           tweetId: 2,
-          content: 'Anyone else excited about the new React features? #ReactJS',
-          createdAt: '2024-09-29T15:30:00Z',
+          content:`Just launched my new project! Excited to share it with everyone. 🚀 It's been a long journey, but I'm finally here. I couldn't have done it without the amazing support from my friends and family. Stay tuned for more updates as I keep improving! #Launch #NewBeginnings #TechLife'`,
+          createdAt: '29 sep',
           likes: 30,
           retweets: 5,
           comments: 2,
+          numberShare: 0,
         },
         {
           tweetId: 3,
@@ -31,6 +34,7 @@ export const DB = [
           likes: 18,
           retweets: 3,
           comments: 1,
+          numberShare: 0,
         },
       ],
     },
@@ -45,11 +49,12 @@ export const DB = [
       tweets: [
         {
           tweetId: 1,
-          content: 'Just returned from a beautiful trip to Italy! 🇮🇹 #TravelDiaries',
+          content: `Just returned from a beautiful trip to Italy! 🇮🇹 The food, the culture, and the landscapes were absolutely breathtaking. Every corner felt like a scene from a movie. Can’t wait to go through all my photos and share them with you! Stay tuned! #TravelDiaries #ItalyTrip #Wanderlust`,
           createdAt: '2024-09-29T18:45:00Z',
           likes: 45,
           retweets: 15,
           comments: 7,
+          numberShare: 0,
         },
         {
           tweetId: 2,
@@ -72,7 +77,7 @@ export const DB = [
       tweets: [
         {
           tweetId: 1,
-          content: 'A good book is a friend that never betrays. #Reading',
+          content:`"A good book is a friend that never betrays. 📚 Reading has been my escape, my teacher, and my inspiration. I just finished another classic, and I can’t recommend it enough. Who else loves getting lost in a good story? #BookLove #ReadingCommunity #Wisdom`,
           createdAt: '2024-09-25T10:15:00Z',
           likes: 20,
           retweets: 5,
@@ -115,7 +120,7 @@ export const DB = [
         },
         {
           tweetId: 2,
-          content: 'Food is my love language! What’s yours? #FoodLove',
+          content: `Tried a new recipe today! 🍽️ It’s a mix of traditional flavors with a modern twist, perfect for any food lover. Head to my blog for the full details and let me know what you think if you give it a try! #Foodie #RecipeShare #CookingAdventures`,
           createdAt: '2024-09-26T14:00:00Z',
           likes: 50,
           retweets: 15,
@@ -209,6 +214,8 @@ export const DB = [
           likes: 30,
           retweets: 10,
           comments: 5,
+          numberShare: 0,
+          image : ''
         },
         {
           tweetId: 2,
@@ -217,6 +224,7 @@ export const DB = [
           likes: 20,
           retweets: 8,
           comments: 2,
+          numberShare: 0
         },
       ],
     },
@@ -231,11 +239,12 @@ export const DB = [
       tweets: [
         {
           tweetId: 1,
-          content: 'The beauty of nature never ceases to amaze me! 🌲 #NaturePhotography',
+          content: `The beauty of nature never ceases to amaze me! 🌲 Whether it's the tall trees, flowing rivers, or the chirping birds, there's always something peaceful and grounding about being outside. Here's one of my favorite shots from my latest hike. #NaturePhotography #OutdoorLife`,
           createdAt: '2024-09-22T09:45:00Z',
           likes: 80,
           retweets: 25,
           comments: 12,
+          image: '/image_twitter/image-3.png'
         },
         {
           tweetId: 2,
@@ -247,7 +256,7 @@ export const DB = [
         },
         {
           tweetId: 3,
-          content: 'Always finding inspiration in the great outdoors. 🍃 #Photography',
+          content: `Nature is the art of God. 🌼 Every time I look through my lens, I’m reminded of how much beauty there is in the little things. #NatureLover #Photography #Inspiration`,
           createdAt: '2024-09-18T10:30:00Z',
           likes: 40,
           retweets: 15,

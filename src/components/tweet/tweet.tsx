@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 
-interface TweetProps {
+export interface TweetProps {
   avatar: string,
   username: string,
   handle: string,
   time: string,
   content: string,
   image?: string,
-  numberLike: string,
-  numberComment: string,
-  numberRetweet: string,
-  numberDownload: string
+  numberLike: number,
+  numberComment: number,
+  numberRetweet: number,
+  numberShare?: number
 }
 
 const Tweet = ({ avatar, username, handle, time, content, image, numberLike, numberComment, numberRetweet, numberDownload }: TweetProps) => {
