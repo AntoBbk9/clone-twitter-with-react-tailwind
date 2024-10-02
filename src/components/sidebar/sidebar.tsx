@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "../button/button";
 import SidebarItem from "./sidebarItem";
 import Icon from "../icon/icon";
 import { DB } from "../../../database";
 
-function Sidebar() {
+function Sidebar({}) {
   const loggedUserId = 1;
+  const navigate = useNavigate();
   const user = DB.find((user) => user.userId === loggedUserId)
+
+  const handleProfileClick = () => {
+    navigate(`/${user?.username}`);
+  };
+
     return (
 
     <>
@@ -44,9 +50,12 @@ function Sidebar() {
           <SidebarItem href="/message" children={<Icon name='message' />} heading="Messages" />
           <SidebarItem href="/list" children={<Icon name='lists' />} heading="Lists" />
           <SidebarItem href="/bookmarks" children={<Icon name='bookmarks' />} heading="Bookmarks" />
-          <Link to={`/${user?.username}`}>
-            <SidebarItem href={`/${user?.username}`} children={<Icon name='profil' />} heading="Profile" />
-          </Link>
+          <SidebarItem 
+            href={`/${user?.username}`} 
+            children={<Icon name='profil' />} 
+            heading="Profile" 
+            onClick={handleProfileClick} 
+          />
           <SidebarItem href="/more" children={<Icon name='more' />} heading="More" />
           <div className="hidden lg:block">
             <Button color="blue" size="primary">Post</Button>
