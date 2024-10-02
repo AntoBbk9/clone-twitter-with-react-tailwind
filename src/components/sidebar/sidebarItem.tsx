@@ -19,8 +19,8 @@ function SidebarItem({ heading, children, href, onClick }: Props) {
   };
 
   return (
-    <div className="flex gap-4 items-center" onClick={handleClick}>
-      <button>{children}</button>
+    <div className="flex gap-4 items-center cursor-pointer" onClick={handleClick}>
+      <div>{children}</div>
       <p className="hidden lg:block text-white text-[20px]">{heading}</p>
     </div>
   );
