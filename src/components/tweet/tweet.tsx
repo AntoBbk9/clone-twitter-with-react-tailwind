@@ -30,11 +30,11 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to={`/${username}`}>  
-              <span className="font-bold text-white text-[15px]">{username}</span>
+              <span className="font-bold text-white text-[15px]">{handle}</span>
             </Link>
             <img src="/image_twitter/badge.png" alt="" />
             <Link to={`/${username}`}>  
-              <span className="text-graycolor2 text-[15px]">@{handle}</span>
+              <span className="text-graycolor2 text-[15px]">@{username}</span>
             </Link>
             <span className="text-graycolor2 text-[15px]">·</span>
             <span className="text-graycolor2 text-[15px]">{time}</span>

@@ -8,7 +8,12 @@ import Icon from "../icon/icon";
 import Tweet from "../tweet/tweet";
 import { TweetType } from "../tweet/type";
 
-const ProfilePage = () => {
+type ProfilePageProps = {
+  userProfileMenu: boolean; // Indique si l'utilisateur est dans son propre profil via le menu
+  userProfil: User; // L'utilisateur authentifié
+};
+
+const ProfilePage = ({ userProfileMenu, userProfil }: ProfilePageProps) => {
   const { username } = useParams();
   const [user, setUser] = useState<User | null>(null);
   const [userTweets, setUserTweets] = useState<TweetType[]>([]);
@@ -28,6 +33,9 @@ const ProfilePage = () => {
   if (!user) {
     return <p className="text-gray-500">User not found.</p>;
   }
+
+  // Vérifie si c'est le profil de l'utilisateur authentifié
+  const isCurrentUserProfile = userProfileMenu || user.username === userProfil.username;
 
   return (
     <div className="w-full sm:w-[40rem] min-h-screen">
@@ -53,10 +61,16 @@ const ProfilePage = () => {
       </div>
 
       <div className="flex gap-2 justify-end pt-4 pr-4">
-        <div className="w-8 h-8 rounded-full flex justify-center items-center border border-gray-500">
-          <Icon name="message" />
-        </div>
-        <Button color="white" size="secondary">Follow</Button>
+        {isCurrentUserProfile ? (
+          <Button color="white" size="secondary">Edit Profile</Button> // Affiche "Edit Profile" pour le propriétaire du profil
+        ) : (
+          <>
+            <div className="w-8 h-8 rounded-full flex justify-center items-center border border-gray-500">
+              <Icon name="message" />
+            </div>
+            <Button color="white" size="secondary">Follow</Button>
+          </>
+        )}
       </div>
 
       <div className="p-4 border-b border-gray-800">

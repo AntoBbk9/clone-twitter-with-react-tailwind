@@ -1,6 +1,53 @@
 export const DB = [
+  {
+    userId: 1,
+    username: 'Bradleyortiz',
+    name: 'Bradley Ortiz',
+    bio: 'Tech enthusiast, coffee lover, and software engineer. Always exploring new ideas and trends in tech.',
+    profilePicture: '/image_twitter/Profile-Photo.png',
+    followersCount: 1200,
+    followingCount: 800,
+    tweets: [
+      {
+        tweetId: 1,
+        content: `Excited to be working on a new React project! Loving the flexibility it provides for building UI components. #React #JavaScript #WebDevelopment`,
+        createdAt: '20 Oct',
+        likes: 150,
+        retweets: 30,
+        comments: 10,
+        numberShare: 5,
+      },
+      {
+        tweetId: 2,
+        content: 'Just finished reading a great book on cloud computing. The future is all about scalability and efficiency. #CloudComputing #TechTrends',
+        createdAt: '19 Mars',
+        likes: 80,
+        retweets: 20,
+        comments: 5,
+        numberShare: 2,
+      },
+      {
+        tweetId: 3,
+        content: `Coffee is the coder's fuel! Starting my day with a double shot and a fresh perspective. What’s your go-to morning routine? #CoffeeLovers #MorningRoutine`,
+        createdAt: '20 Dec 2023',
+        likes: 200,
+        retweets: 50,
+        comments: 15,
+        numberShare: 10,
+      },
+      {
+        tweetId: 4,
+        content: 'Exploring the latest trends in AI. It’s fascinating how quickly things are evolving in this space. #ArtificialIntelligence #MachineLearning',
+        createdAt: '2024-09-23T18:10:00Z',
+        likes: 110,
+        retweets: 40,
+        comments: 12,
+        numberShare: 8,
+      },
+    ],
+    },  
     {
-      userId: 1,
+      userId: 2,
       username: 'john_doe',
       name: 'John Doe',
       bio:  'Tech enthusiast and coffee lover. Tweets about tech, travel, and life.',
@@ -39,7 +86,7 @@ export const DB = [
       ],
     },
     {
-      userId: 2,
+      userId: 3,
       username: 'jane_smith',
       name: 'Jane Smith',
       bio: 'Digital marketing specialist. Love to travel and take photos.',
@@ -67,7 +114,7 @@ export const DB = [
       ],
     },
     {
-      userId: 3,
+      userId: 4,
       username: 'mark_twain',
       name: 'Mark Twain',
       bio: 'Writer and storyteller. Sharing thoughts on literature and life.',
@@ -102,7 +149,7 @@ export const DB = [
       ],
     },
     {
-      userId: 4,
+      userId: 5,
       username: 'sara_lee',
       name: 'Sara Lee',
       bio: 'Food blogger and recipe creator. Sharing my culinary adventures!',
@@ -137,7 +184,7 @@ export const DB = [
       ],
     },
     {
-      userId: 5,
+      userId: 6,
       username: 'alice_wonder',
       name: 'Alice Wonderland',
       bio: 'Dreamer and artist. Exploring creativity in everyday life.',
@@ -172,7 +219,7 @@ export const DB = [
       ],
     },
     {
-      userId: 6,
+      userId: 7,
       username: 'charlie_brown',
       name: 'Charlie Brown',
       bio: 'Aspiring musician. Love to share my journey in music.',
@@ -199,7 +246,7 @@ export const DB = [
       ],
     },
     {
-      userId: 7,
+      userId: 8,
       username: 'david_brown',
       name: 'David Brown',
       bio: 'Gadget lover and tech reviewer. Sharing insights on the latest tech.',
@@ -229,7 +276,7 @@ export const DB = [
       ],
     },
     {
-      userId: 8,
+      userId: 9,
       username: 'emma_stone',
       name: 'Emma Stone',
       bio: 'Nature lover and photographer. Capturing the beauty of the world.',

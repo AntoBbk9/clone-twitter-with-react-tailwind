@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import Button from "../button/button";
 import SidebarItem from "./sidebarItem";
 import Icon from "../icon/icon";
+import { DB } from "../../../database";
 
 function Sidebar() {
+  const loggedUserId = 1;
+  const user = DB.find((user) => user.userId === loggedUserId)
     return (
 
     <>
@@ -41,8 +44,8 @@ function Sidebar() {
           <SidebarItem href="/message" children={<Icon name='message' />} heading="Messages" />
           <SidebarItem href="/list" children={<Icon name='lists' />} heading="Lists" />
           <SidebarItem href="/bookmarks" children={<Icon name='bookmarks' />} heading="Bookmarks" />
-          <Link to='/:username'>
-            <SidebarItem href="/:username" children={<Icon name='profil' />} heading="Profile" />
+          <Link to={`/${user?.username}`}>
+            <SidebarItem href={`/${user?.username}`} children={<Icon name='profil' />} heading="Profile" />
           </Link>
           <SidebarItem href="/more" children={<Icon name='more' />} heading="More" />
           <div className="hidden lg:block">
@@ -56,15 +59,21 @@ function Sidebar() {
         </div>
 
         <div className="flex gap-2 items-center">
-          <img src="/image_twitter/Profile-Photo.png" alt="photo de profil" />
-          <div>
-            <div className="flex gap-3 items-center">
-              <p className="hidden lg:block text-white">Bradley Ortiz</p> 
-              <img src="/image_twitter/Vector.png" alt="" className="hidden lg:block w-5 h-4" />
-            </div>
-            <p className="hidden lg:block text-graycolor2">@Bradleyortiz</p> 
-          </div>
-          <p className="hidden lg:block text-white">...</p>
+          {user ? (
+            <>
+              <img src={user.profilePicture} alt="photo de profil" />
+              <div>
+                <div className="flex gap-3 items-center">
+                  <p className="hidden lg:block text-white">{user.name}</p> 
+                  <img src="/image_twitter/Vector.png" alt="" className="hidden lg:block w-5 h-4" />
+                </div>
+                <p className="hidden lg:block text-graycolor2">@{user.username}</p> 
+              </div>
+              <p className="hidden lg:block text-white">...</p>
+            </>
+          ) : (
+            <p>Utilisateur non disponible</p>
+          )}
         </div>
       </div>
     </>
