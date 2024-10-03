@@ -16,7 +16,6 @@ export const DB = [
         retweets: 30,
         comments: 10,
         numberShare: 5,
-        image: `https://img.freepik.com/photos-gratuite/collage-arriere-plan-programmation_23-2149901789.jpg?ga=GA1.1.46618866.1723015588&semt=ais_hybrid`,
       },
       {
         tweetId: 2,
@@ -130,7 +129,6 @@ export const DB = [
           likes: 20,
           retweets: 5,
           comments: 3,
-          image: 'https://img.freepik.com/photos-gratuite/livre-bibliotheque-manuel-ouvert_1150-5922.jpg?ga=GA1.1.46618866.1723015588&semt=ais_hybrid',
         },
         {
           tweetId: 2,
@@ -217,8 +215,6 @@ export const DB = [
           likes: 30,
           retweets: 6,
           comments: 3,
-          image: 'https://img.freepik.com/photos-gratuite/vue-laterale-homme-peignant-toile_23-2150170491.jpg?ga=GA1.1.46618866.1723015588&semt=ais_hybrid',
-          numberShare: 0
         },
       ],
     },
@@ -312,8 +308,47 @@ export const DB = [
           likes: 40,
           retweets: 15,
           comments: 8,
-          numberShare: 0,
-          image: 'https://img.freepik.com/photos-gratuite/vue-photorealiste-arbre-dans-nature-branches-tronc_23-2151478039.jpg?ga=GA1.1.46618866.1723015588&semt=ais_hybrid'
+        },
+      ],
+    },
+    {
+      userId: 10,
+      username: 'charliebrown',
+      name: 'Charlie Brown',
+      bio: 'Aspiring musician. Sharing my musical journey.',
+      profilePicture: 'https://randomuser.me/api/portraits/men/7.jpg',
+      followersCount: 500,
+      followingCount: 300,
+      tweets: [
+        {
+          tweetId: 1,
+          content: 'Just wrote a new song! #MusicLife',
+          createdAt: '2024-09-21T12:30:00Z',
+          likes: 70,
+          retweets: 15,
+          comments: 5,
+          numberShare: 2,
+          image: 'https://img.freepik.com/photos-gratuite/fond-musical-volumetrique-cle-sol-notes-ia-generatives_169016-29576.jpg?size=626&ext=jpg&ga=GA1.1.46618866.1723015588&semt=ais_hybrid'
+        },
+        {
+          tweetId: 2,
+          content: 'Music speaks what cannot be expressed. #MusicIsLife',
+          createdAt: '2024-09-19T11:00:00Z',
+          likes: 40,
+          retweets: 10,
+          comments: 3,
+          numberShare: 1,
+          image: null
+        },
+        {
+          tweetId: 3,
+          content: 'Music brings people together. #Unity',
+          createdAt: '2024-09-17T10:00:00Z',
+          likes: 60,
+          retweets: 20,
+          comments: 7,
+          numberShare: 3,
+          image: null
         },
       ],
     },

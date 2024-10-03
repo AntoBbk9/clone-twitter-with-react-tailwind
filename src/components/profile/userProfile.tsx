@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Button from "../button/button";
 import { User } from "./type";
@@ -7,7 +7,7 @@ import { DB } from "../../../database";
 import Icon from "../icon/icon";
 import Tweet from "../tweet/tweet";
 import { TweetType } from "../tweet/type";
-import TabItem from "../tabItemProps";
+import TabItem from "../tweet/tabItemProps";
 
 
 const ProfilePage = () => {
@@ -103,9 +103,9 @@ const ProfilePage = () => {
               onClick={() => handleTabClick("replies")}
             />
             <TabItem
-              label="HighLights"
-              active={activeTab === "highLights"}
-              onClick={() => handleTabClick("highLights")}
+              label="Highlights"
+              active={activeTab === "highlights"}
+              onClick={() => handleTabClick("highlights")}
             />
             <TabItem
               label="Media"
@@ -138,8 +138,6 @@ const ProfilePage = () => {
           </>
         )}
       </div>
-
-
         {userTweets.length > 0 ? (
           userTweets.map((tweet) => (
             <div key={tweet.tweetId} className="mb-4">
@@ -160,6 +158,9 @@ const ProfilePage = () => {
         ) : (
           <p className="text-gray-500">No tweets found for {user.username}.</p>
         )}
+      </div>
+      <div>
+        <Outlet/>
       </div>
     </div>
   );

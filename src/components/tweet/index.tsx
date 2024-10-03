@@ -16,7 +16,7 @@ function Main() {
       numberComment: tweet.comments,
       numberRetweet: tweet.retweets,
       numberShare: tweet.numberShare,
-      image: tweet.image
+      image: tweet.image 
     }))
   )
 );
