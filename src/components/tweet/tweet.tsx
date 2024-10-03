@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export interface TweetProps {
@@ -14,6 +15,17 @@ export interface TweetProps {
 }
 
 const Tweet = ({ avatar, username, handle, time, content, image, numberLike, numberComment, numberRetweet, numberShare }: TweetProps) => {
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(numberLike);
+
+  const handleLikeClick = () => {
+    if (liked) {
+      setLikeCount(likeCount - 1); 
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+    setLiked(!liked);
+  };
   return (
     <div className="sm:w-full border-b border-grayColor p-4 flex">
       <div className="mr-4">
@@ -68,12 +80,14 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
           </div>
 
           <div className="group flex gap-1 md:gap-3 w-28">
-            <button>
-            <svg className="group-hover:stroke-red-500" width="14" height="14" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button onClick={handleLikeClick}>
+            <svg  className={`group-hover:fill-red-500 group-hover:stroke-red-500 ${
+                  liked ? "fill-red-500 stroke-red-500" : "fill-gray-500 stroke-gray-500"
+                }`}  width="14" height="14" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.00001 16.0317H8.98834C6.83584 15.9917 0.625008 10.38 0.625008 5.06499C0.625008 2.51166 2.72917 0.269989 5.12751 0.269989C7.03584 0.269989 8.31918 1.58666 8.99918 2.54499C9.67751 1.58832 10.9608 0.269989 12.87 0.269989C15.27 0.269989 17.3733 2.51166 17.3733 5.06582C17.3733 10.3792 11.1617 15.9908 9.00918 16.03H9.00001V16.0317ZM5.12834 1.52082C3.39501 1.52082 1.87584 3.17749 1.87584 5.06666C1.87584 9.84999 7.73751 14.73 9.00084 14.7817C10.2658 14.73 16.1258 9.85082 16.1258 5.06666C16.1258 3.17749 14.6067 1.52082 12.8733 1.52082C10.7667 1.52082 9.59001 3.96749 9.58001 3.99166C9.38834 4.45999 8.61668 4.45999 8.42418 3.99166C8.41251 3.96666 7.23667 1.52082 5.12917 1.52082H5.12834Z" fill="#6E767D"/>
               </svg>
             </button>
-            <p className="text-graycolor2 group-hover:text-red-500 text-[10px] md:text-[15px]">{numberLike}</p>
+            <p className={`group-hover:text-red-500 text-[10px] md:text-[15px] ${liked ? 'text-red-500' : 'text-graycolor2'}`}>{likeCount}</p>
           </div>
 
           <div className="group flex gap-3 md:gap-3 w-24">
