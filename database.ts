@@ -26,6 +26,7 @@ export const DB = [
         retweets: 20,
         comments: 5,
         numberShare: 2,
+        image: ''
       },
       {
         tweetId: 3,
@@ -35,6 +36,7 @@ export const DB = [
         retweets: 50,
         comments: 15,
         numberShare: 10,
+        image: ''
       },
       {
         tweetId: 4,
@@ -44,6 +46,7 @@ export const DB = [
         retweets: 40,
         comments: 12,
         numberShare: 8,
+        image: ''
       },
     ],
     },  
@@ -74,6 +77,7 @@ export const DB = [
           retweets: 5,
           comments: 2,
           numberShare: 0,
+          image: ''
         },
         {
           tweetId: 3,
@@ -83,6 +87,7 @@ export const DB = [
           retweets: 3,
           comments: 1,
           numberShare: 0,
+          image: ''
         },
       ],
     },
@@ -103,6 +108,7 @@ export const DB = [
           retweets: 15,
           comments: 7,
           numberShare: 0,
+          image: ''
         },
         {
           tweetId: 2,
@@ -111,6 +117,7 @@ export const DB = [
           likes: 28,
           retweets: 4,
           comments: 3,
+          image: ''
         },
       ],
     },
@@ -139,6 +146,7 @@ export const DB = [
           likes: 15,
           retweets: 2,
           comments: 1,
+          image: ''
         },
         {
           tweetId: 3,
@@ -147,6 +155,7 @@ export const DB = [
           likes: 10,
           retweets: 1,
           comments: 0,
+          image: ''
         },
       ],
     },
@@ -166,6 +175,7 @@ export const DB = [
           likes: 60,
           retweets: 20,
           comments: 10,
+          image: ''
         },
         {
           tweetId: 2,
@@ -174,6 +184,7 @@ export const DB = [
           likes: 50,
           retweets: 15,
           comments: 8,
+          image: ''
         },
         {
           tweetId: 3,
@@ -182,6 +193,7 @@ export const DB = [
           likes: 40,
           retweets: 12,
           comments: 4,
+          image: ''
         },
       ],
     },
@@ -201,6 +213,7 @@ export const DB = [
           likes: 35,
           retweets: 8,
           comments: 4,
+          image: ''
         },
         {
           tweetId: 2,
@@ -209,6 +222,7 @@ export const DB = [
           likes: 20,
           retweets: 5,
           comments: 2,
+          image: ''
         },
         {
           tweetId: 3,
@@ -238,6 +252,7 @@ export const DB = [
           likes: 18,
           retweets: 4,
           comments: 1,
+          image: ''
         },
         {
           tweetId: 2,
@@ -246,6 +261,7 @@ export const DB = [
           likes: 12,
           retweets: 3,
           comments: 0,
+          image: ''
         },
       ],
     },
@@ -275,7 +291,8 @@ export const DB = [
           likes: 20,
           retweets: 8,
           comments: 2,
-          numberShare: 0
+          numberShare: 0,
+          image: ''
         },
       ],
     },
@@ -304,6 +321,7 @@ export const DB = [
           likes: 50,
           retweets: 10,
           comments: 5,
+          image: ''
         },
         {
           tweetId: 3,
