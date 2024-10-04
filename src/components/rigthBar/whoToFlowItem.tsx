@@ -8,8 +8,8 @@ interface WhoToFlowItem{
 function WhoToFlowItem({ image, username, handle }: WhoToFlowItem) {
   return (
     <div className="flex justify-between pt-8">
-        <div className="flex gap-1">
-            <img src={image} alt={`${username}'s image`} />
+        <div className="flex gap-2">
+            <img src={image} alt={`${username}'s image`} className="w-10 h-10 rounded-full"/>
             <div>
                 <div className="flex gap-2 items-center">
                     <span className="text-white text-[15px]">{username}</span>

@@ -20,6 +20,7 @@ function Main() {
     }))
   )
 );
+console.log(tweets);
 
   return (
     <div className="w-full sm:w-[40rem] border-x border-grayColor">

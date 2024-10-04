@@ -1,7 +1,11 @@
 import TrendingItem from "./trendingItem"
 import WhoToFlowItem from "./whoToFlowItem"
+import { DB } from "../../../database"
+
 
 function RigthBar() {
+  const whoToFollowUsers = DB.slice(1, 4)
+
   return (
     <div className="hidden lg:block border-l border-grayColor p-4 w-[28rem]">
       <div className="sticky top-0 backdrop-blur-xl bg-black p-0">
@@ -47,17 +51,14 @@ function RigthBar() {
       <div className="bg-grayColor mt-3 rounded-xl p-4">
         <h3 className="font-bold text-[20px]">Who to follow</h3>
 
-        <WhoToFlowItem image="/image_twitter/image-1.png" 
-          username="The New York Times" 
-          handle="nytimes"/>
-
-        <WhoToFlowItem image="/image_twitter/image.png" 
-          username="CNN" 
-          handle="cnn"/>
-
-        <WhoToFlowItem image="/image_twitter/image-logo.png" 
-          username="Twitter" 
-          handle="Twitter"/>
+        {whoToFollowUsers.map(user => (
+          <WhoToFlowItem
+            key={user.userId}
+            image={user.profilePicture}
+            username={user.name}
+            handle={user.username}
+          />
+        ))}
 
       <div className="pt-8">
         <a href="#" className="text-blue">Show more</a>

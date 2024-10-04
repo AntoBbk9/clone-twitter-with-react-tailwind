@@ -41,7 +41,7 @@ export const DB = [
       {
         tweetId: 4,
         content: 'Exploring the latest trends in AI. It’s fascinating how quickly things are evolving in this space. #ArtificialIntelligence #MachineLearning',
-        createdAt: '2024-09-23T18:10:00Z',
+        createdAt: '40m',
         likes: 110,
         retweets: 40,
         comments: 12,
@@ -82,7 +82,7 @@ export const DB = [
         {
           tweetId: 3,
           content: 'Just finished a great book on JavaScript! Highly recommend. 📚 #BookLover',
-          createdAt: '2024-09-28T10:00:00Z',
+          createdAt: '10h',
           likes: 18,
           retweets: 3,
           comments: 1,
@@ -103,7 +103,7 @@ export const DB = [
         {
           tweetId: 1,
           content: `Just returned from a beautiful trip to Italy! 🇮🇹 The food, the culture, and the landscapes were absolutely breathtaking. Every corner felt like a scene from a movie. Can’t wait to go through all my photos and share them with you! Stay tuned! #TravelDiaries #ItalyTrip #Wanderlust`,
-          createdAt: '2024-09-29T18:45:00Z',
+          createdAt: '29 Sept',
           likes: 45,
           retweets: 15,
           comments: 7,
@@ -113,7 +113,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Exploring new digital marketing trends for 2024! #Marketing',
-          createdAt: '2024-09-27T14:30:00Z',
+          createdAt: '27 Sept',
           likes: 28,
           retweets: 4,
           comments: 3,
@@ -133,7 +133,7 @@ export const DB = [
         {
           tweetId: 1,
           content:`"A good book is a friend that never betrays. 📚 Reading has been my escape, my teacher, and my inspiration. I just finished another classic, and I can’t recommend it enough. Who else loves getting lost in a good story? #BookLove #ReadingCommunity #Wisdom`,
-          createdAt: '2024-09-25T10:15:00Z',
+          createdAt: '25 Sept',
           likes: 20,
           retweets: 5,
           comments: 3,
@@ -142,7 +142,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Writing is easy. All you have to do is cross out the wrong words. #Writing',
-          createdAt: '2024-09-23T12:00:00Z',
+          createdAt: '23 Sept',
           likes: 15,
           retweets: 2,
           comments: 1,
@@ -151,7 +151,7 @@ export const DB = [
         {
           tweetId: 3,
           content: 'Let us be thankful for the fools. But for them, the rest of us could not succeed. #Wisdom',
-          createdAt: '2024-09-21T09:00:00Z',
+          createdAt: '21 Jun',
           likes: 10,
           retweets: 1,
           comments: 0,
@@ -171,7 +171,7 @@ export const DB = [
         {
           tweetId: 1,
           content: 'Tried a new recipe today! Check out my blog for the details. 🍽️ #Foodie',
-          createdAt: '2024-09-28T13:00:00Z',
+          createdAt: '28 Sept',
           likes: 60,
           retweets: 20,
           comments: 10,
@@ -180,7 +180,7 @@ export const DB = [
         {
           tweetId: 2,
           content: `Tried a new recipe today! 🍽️ It’s a mix of traditional flavors with a modern twist, perfect for any food lover. Head to my blog for the full details and let me know what you think if you give it a try! #Foodie #RecipeShare #CookingAdventures`,
-          createdAt: '2024-09-26T14:00:00Z',
+          createdAt: '26 Sept',
           likes: 50,
           retweets: 15,
           comments: 8,
@@ -189,7 +189,7 @@ export const DB = [
         {
           tweetId: 3,
           content: 'Can’t wait to share my favorite fall recipes! 🍁 #FallCooking',
-          createdAt: '2024-09-24T16:30:00Z',
+          createdAt: '2h',
           likes: 40,
           retweets: 12,
           comments: 4,
@@ -209,7 +209,7 @@ export const DB = [
         {
           tweetId: 1,
           content: 'Creating art is like dreaming with colors. 🎨 #ArtLife',
-          createdAt: '2024-09-26T14:30:00Z',
+          createdAt: '7m',
           likes: 35,
           retweets: 8,
           comments: 4,
@@ -218,7 +218,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Art is not freedom from discipline, but disciplined freedom. #ArtQuotes',
-          createdAt: '2024-09-24T11:15:00Z',
+          createdAt: '24 Sept',
           likes: 20,
           retweets: 5,
           comments: 2,
@@ -227,7 +227,7 @@ export const DB = [
         {
           tweetId: 3,
           content: 'Just finished a new painting! Can’t wait to show it off! #ArtCommunity',
-          createdAt: '2024-09-22T13:30:00Z',
+          createdAt: '22 Jul',
           likes: 30,
           retweets: 6,
           comments: 3,
@@ -248,7 +248,7 @@ export const DB = [
         {
           tweetId: 1,
           content: 'Just finished writing a new song! Can’t wait to share it! 🎶 #MusicLife',
-          createdAt: '2024-09-24T16:00:00Z',
+          createdAt: '24 Sept',
           likes: 18,
           retweets: 4,
           comments: 1,
@@ -257,7 +257,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Music is the shorthand of emotion. 🎵 #MusicQuote',
-          createdAt: '2024-09-22T09:00:00Z',
+          createdAt: '22 Sept',
           likes: 12,
           retweets: 3,
           comments: 0,
@@ -277,7 +277,7 @@ export const DB = [
         {
           tweetId: 1,
           content: 'Just got my hands on the latest smartphone! Review coming soon. 📱 #TechReview',
-          createdAt: '2024-09-23T11:00:00Z',
+          createdAt: '23 Sept',
           likes: 30,
           retweets: 10,
           comments: 5,
@@ -287,7 +287,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Can’t believe how fast technology is evolving! #FutureTech',
-          createdAt: '2024-09-21T14:30:00Z',
+          createdAt: '21 Sept',
           likes: 20,
           retweets: 8,
           comments: 2,
@@ -308,7 +308,7 @@ export const DB = [
         {
           tweetId: 1,
           content: `The beauty of nature never ceases to amaze me! 🌲 Whether it's the tall trees, flowing rivers, or the chirping birds, there's always something peaceful and grounding about being outside. Here's one of my favorite shots from my latest hike. #NaturePhotography #OutdoorLife`,
-          createdAt: '2024-09-22T09:45:00Z',
+          createdAt: '22 Sept',
           likes: 80,
           retweets: 25,
           comments: 12,
@@ -317,7 +317,7 @@ export const DB = [
         {
           tweetId: 2,
           content: 'Nature is the art of God. 🌼 #NatureLover',
-          createdAt: '2024-09-20T14:00:00Z',
+          createdAt: '20 Sept',
           likes: 50,
           retweets: 10,
           comments: 5,
@@ -326,7 +326,7 @@ export const DB = [
         {
           tweetId: 3,
           content: `Nature is the art of God. 🌼 Every time I look through my lens, I’m reminded of how much beauty there is in the little things. #NatureLover #Photography #Inspiration`,
-          createdAt: '2024-09-18T10:30:00Z',
+          createdAt: '18 Sept',
           likes: 40,
           retweets: 15,
           comments: 8,
