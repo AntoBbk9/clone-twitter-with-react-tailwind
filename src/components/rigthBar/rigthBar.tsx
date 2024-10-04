@@ -5,6 +5,28 @@ import { DB } from "../../../database"
 
 function RigthBar() {
   const whoToFollowUsers = DB.slice(1, 4)
+  const trend = [
+    {
+      firstParagraph: "Trending in Turkey",
+      secondParagraph: "#SQUID",
+      thirdParagraph: "2,066 Tweets"
+    },
+    {
+      firstParagraph: "Trending in Turkey",
+      secondParagraph: "#AnotherTrend",
+      thirdParagraph: "1,500 Tweets"
+    },
+    {
+      firstParagraph: "Trending in the World",
+      secondParagraph: "#GlobalTopic",
+      thirdParagraph: "10,000 Tweets"
+    },
+    {
+      firstParagraph: "Trending in Sports",
+      secondParagraph: "#Football",
+      thirdParagraph: "5,000 Tweets"
+    },
+  ]
 
   return (
     <div className="hidden lg:block border-l border-grayColor p-4 w-[28rem]">
@@ -23,25 +45,14 @@ function RigthBar() {
           </div>
         </div>
 
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
+        {trend.map((trendItem, index) => (
+          <TrendingItem
+            key={index}
+            firstParagraph={trendItem.firstParagraph}
+            secondParagraph={trendItem.secondParagraph}
+            thirdParagraph={trendItem.thirdParagraph}
+          />
+        ))}
 
           <div className="pt-8">
             <a href="#" className="text-blue text-[15px]">Show more</a>
