@@ -70,7 +70,7 @@ function Sidebar({}) {
         <div className="flex gap-2 items-center">
           {user ? (
             <>
-              <img src={user.profilePicture} alt="photo de profil" />
+              <img src={user.profilePicture} alt="photo de profil" className="w-12 h-12 rounded-full object-cover"/>
               <div>
                 <div className="flex gap-3 items-center">
                   <p className="hidden lg:block text-white">{user.name}</p> 

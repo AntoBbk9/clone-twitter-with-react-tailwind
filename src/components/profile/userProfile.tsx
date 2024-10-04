@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, Outlet, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Button from "../button/button";
 import { User } from "./type";
@@ -9,9 +9,9 @@ import Tweet from "../tweet/tweet";
 import { TweetType } from "../tweet/type";
 import TabItem from "../tweet/tabItemProps";
 
-
 const ProfilePage = () => {
   const { username } = useParams();
+  const navigate = useNavigate();
   const [user, setUser] = useState<User | null>(null);
   const [userTweets, setUserTweets] = useState<TweetType[]>([]);
   const [activeTab, setActiveTab] = useState<string>("posts");
@@ -24,7 +24,7 @@ const ProfilePage = () => {
         setUserTweets(foundUser.tweets);
       }
     };
-    
+
     fetchUserData();
   }, [username]);
 
@@ -33,18 +33,29 @@ const ProfilePage = () => {
   }
 
   const isCurrentUserProfile = user.userId === 1;
-  
+
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
-  };
+    if (tab === "replies") {
+      navigate("replie");
+    } else if (tab === "media") {
+      navigate("media");
+    }else if (tab === "highlights") {
+      navigate("highlights")
+    }else if (tab === "likes"){
+      navigate("likes")
+    }else{
+      navigate("")
+    }
+}
 
   return (
     <div className="w-full sm:w-[40rem] min-h-screen">
       <div className="sticky top-0 border-b border-grayColor px-4 py-2 flex justify-between items-center backdrop-blur-xl bg-black/30 ">
         <div className="flex gap-3 items-center">
-        <Link to="/">
-          <FaArrowLeft />
-        </Link>
+          <Link to="/">
+            <FaArrowLeft />
+          </Link>
           <h1 className="text-xl font-bold">{user.name}</h1>
         </div>
         <span className="text-gray-500">{userTweets.length} posts</span>
@@ -53,7 +64,7 @@ const ProfilePage = () => {
       <div className="relative">
         <img
           className="w-full h-48 object-cover"
-          src={user.coverImage || '/image_twitter/backgroundImg.png'}
+          src={user.coverImage || "/image_twitter/backgroundImg.png"}
           alt="Cover"
         />
         <img
@@ -65,13 +76,17 @@ const ProfilePage = () => {
 
       <div className="flex gap-2 justify-end pt-4 pr-4">
         {isCurrentUserProfile ? (
-          <Button color="black" size="secondary">Edit Profile</Button>
+          <Button color="black" size="secondary">
+            Edit Profile
+          </Button>
         ) : (
           <>
             <div className="w-8 h-8 rounded-full flex justify-center items-center border border-gray-500">
               <Icon name="message" />
             </div>
-            <Button color="white" size="secondary">Follow</Button>
+            <Button color="white" size="secondary">
+              Follow
+            </Button>
           </>
         )}
       </div>
@@ -85,10 +100,19 @@ const ProfilePage = () => {
             {user.website}
           </a>
         )}
-        <p className="text-sm text-gray-400">Joined February 2023</p>
+        <p className="text-sm text-gray-500">Joined February 2023</p>
+        <div className="flex gap-4">
+          <div className="flex gap-1">
+            <p className="text-sm font-bold">{user.followersCount}</p>
+            <span className="text-sm text-gray-500">Following</span>
+          </div>
+          <div className="flex gap-1">
+            <p className="text-sm font-bold">{user.followingCount}</p>
+            <span className="text-sm text-gray-500">Followers</span>
+          </div>
+        </div>
       </div>
 
-      <div>
       <div className="border-b border-grayColor flex justify-around">
         {isCurrentUserProfile ? (
           <>
@@ -104,8 +128,8 @@ const ProfilePage = () => {
             />
             <TabItem
               label="HighLights"
-              active={activeTab === "highLights"}
-              onClick={() => handleTabClick("highLights")}
+              active={activeTab === "highlights"}
+              onClick={() => handleTabClick("highlights")}
             />
             <TabItem
               label="Media"
@@ -139,8 +163,8 @@ const ProfilePage = () => {
         )}
       </div>
 
-
-        {userTweets.length > 0 ? (
+      {activeTab === "posts" ? (
+        userTweets.length > 0 ? (
           userTweets.map((tweet) => (
             <div key={tweet.tweetId} className="mb-4">
               <Tweet
@@ -159,8 +183,10 @@ const ProfilePage = () => {
           ))
         ) : (
           <p className="text-gray-500">No tweets found for {user.username}.</p>
-        )}
-      </div>
+        )
+      ) : (
+        <Outlet />
+      )}
     </div>
   );
 };

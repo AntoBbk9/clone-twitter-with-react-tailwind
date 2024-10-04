@@ -20,7 +20,7 @@ function Main() {
     }))
   )
 );
-console.log(tweets);
+const loggedUser = DB.slice(0, 1)
 
   return (
     <div className="w-full sm:w-[40rem] border-x border-grayColor">
@@ -40,7 +40,9 @@ console.log(tweets);
 
         <div className="hidden md:block">
           <div className="flex gap-5 p-4 ">
-            <img src="/image_twitter/Profile-Photo.png" alt="" />
+          {loggedUser.map(user => (
+            <img src={user.profilePicture} alt="" className="w-12 h-12 rounded-full object-cover"/>
+          ))}
             <input type="text" placeholder="What's happening?" className="outline-none placeholder-graycolor2 w-full border-none bg-black text-white" />
           </div>
 

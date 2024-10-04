@@ -4,7 +4,7 @@ export const DB = [
     username: 'Bradleyortiz',
     name: 'Bradley Ortiz',
     bio: 'Tech enthusiast, coffee lover, and software engineer. Always exploring new ideas and trends in tech.',
-    profilePicture: '/image_twitter/Profile-Photo.png',
+    profilePicture: "https://media.istockphoto.com/id/656673020/fr/photo/beau-dans-des-lunettes.jpg?s=612x612&w=0&k=20&c=Y09lutNIpq9GgBW-NRNQzfHy5G1pMYuqOVlFzsnKLWw=",
     followersCount: 1200,
     followingCount: 800,
     tweets: [
