@@ -45,7 +45,7 @@ const ProfilePage = () => {
     }else if (tab === "likes"){
       navigate("likes")
     }else{
-      navigate("")
+      navigate(`/${username}`)
     }
 }
 
