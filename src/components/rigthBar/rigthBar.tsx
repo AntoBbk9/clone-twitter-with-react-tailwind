@@ -1,12 +1,40 @@
 import TrendingItem from "./trendingItem"
 import WhoToFlowItem from "./whoToFlowItem"
+import { DB } from "../../../database"
+
 
 function RigthBar() {
+  const whoToFollowUsers = DB.slice(1, 4)
+  const trend = [
+    {
+      firstParagraph: "Trending in Turkey",
+      secondParagraph: "#SQUID",
+      thirdParagraph: "2,066 Tweets"
+    },
+    {
+      firstParagraph: "Trending in Turkey",
+      secondParagraph: "#AnotherTrend",
+      thirdParagraph: "1,500 Tweets"
+    },
+    {
+      firstParagraph: "Trending in the World",
+      secondParagraph: "#GlobalTopic",
+      thirdParagraph: "10,000 Tweets"
+    },
+    {
+      firstParagraph: "Trending in Sports",
+      secondParagraph: "#Football",
+      thirdParagraph: "5,000 Tweets"
+    },
+  ]
+
   return (
     <div className="hidden lg:block border-l border-grayColor p-4 w-[28rem]">
-      <div className="flex items-center h-10 rounded-full bg-grayColor p-4 gap-2 placeholder-graycolor2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" className="text-graycolor2"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
-        <input type="search" name="" id="" placeholder="Search Twitter" className="h-10 rounded-full bg-grayColor p-4 outline-none placeholder-graycolor2"/>
+      <div className="sticky top-0 backdrop-blur-xl bg-black p-0">
+        <div className="flex items-center h-10 rounded-full bg-grayColor p-4 gap-2 placeholder-graycolor2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" className="text-graycolor2"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m21 21l-4.343-4.343m0 0A8 8 0 1 0 5.343 5.343a8 8 0 0 0 11.314 11.314"/></svg>
+          <input type="search" name="" id="" placeholder="Search Twitter" className="h-10 rounded-full bg-grayColor p-4 outline-none placeholder-graycolor2"/>
+        </div>
       </div>
 
       <div className="bg-grayColor mt-3 rounded-xl p-4">
@@ -17,25 +45,14 @@ function RigthBar() {
           </div>
         </div>
 
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
-
-        <TrendingItem
-          firstParagraph="Trending in Turkey"
-          secondParagraph="#SQUID" 
-          thirdParagraph="2,066 Tweets"/>
+        {trend.map((trendItem, index) => (
+          <TrendingItem
+            key={index}
+            firstParagraph={trendItem.firstParagraph}
+            secondParagraph={trendItem.secondParagraph}
+            thirdParagraph={trendItem.thirdParagraph}
+          />
+        ))}
 
           <div className="pt-8">
             <a href="#" className="text-blue text-[15px]">Show more</a>
@@ -45,17 +62,14 @@ function RigthBar() {
       <div className="bg-grayColor mt-3 rounded-xl p-4">
         <h3 className="font-bold text-[20px]">Who to follow</h3>
 
-        <WhoToFlowItem image="/image_twitter/image-1.png" 
-          username="The New York Times" 
-          handle="nytimes"/>
-
-        <WhoToFlowItem image="/image_twitter/image.png" 
-          username="CNN" 
-          handle="cnn"/>
-
-        <WhoToFlowItem image="/image_twitter/image-logo.png" 
-          username="Twitter" 
-          handle="Twitter"/>
+        {whoToFollowUsers.map(user => (
+          <WhoToFlowItem
+            key={user.userId}
+            image={user.profilePicture}
+            username={user.name}
+            handle={user.username}
+          />
+        ))}
 
       <div className="pt-8">
         <a href="#" className="text-blue">Show more</a>
