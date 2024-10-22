@@ -3,9 +3,10 @@ import { HTMLAttributes } from "react";
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   size: "primary" | "secondary";
   color: "blue" | "white" | "black";
+  disabled?: boolean;
 }
 
-function Button({ children, size, color }: Props) {
+function Button({ children, size, color, disabled }: Props) {
   const sizeStyles = size === "primary" 
     ? "w-12 lg:w-48 lg:h-8 h-12" 
     : "w-24 lg:w-24 h-8 lg:h-8";
@@ -20,6 +21,7 @@ function Button({ children, size, color }: Props) {
     <button
       className={`font-bold text-xs rounded-full ${variantColor} ${sizeStyles} 
         block lg:flex items-center justify-center`}
+        disabled={disabled}
     >
       {children}
     </button>

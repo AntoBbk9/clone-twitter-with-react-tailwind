@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export interface TweetProps {
-  avatar: string,
-  username: string,
-  handle: string,
+  avatar: string | undefined,
+  username: string | undefined,
+  name: string | undefined,
   time: string,
   content: string,
   image?: string,
@@ -14,7 +14,7 @@ export interface TweetProps {
   numberShare?: number
 }
 
-const Tweet = ({ avatar, username, handle, time, content, image, numberLike, numberComment, numberRetweet, numberShare }: TweetProps) => {
+const Tweet = ({ avatar, username, name, time, content, image, numberLike, numberComment, numberRetweet, numberShare }: TweetProps) => {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(numberLike);
 
@@ -42,7 +42,7 @@ const Tweet = ({ avatar, username, handle, time, content, image, numberLike, num
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to={`/${username}`}>  
-              <span className="font-bold text-white text-[15px]">{handle}</span>
+              <span className="font-bold text-white text-[15px]">{name}</span>
             </Link>
             <img src="/image_twitter/badge.png" alt="" />
             <Link to={`/${username}`}>  
