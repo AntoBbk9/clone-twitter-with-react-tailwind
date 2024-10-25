@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { TweetType } from "./type";
 
 function Main() {
-
   const formatDate = (date: Date) => {
     const formatter = new Intl.DateTimeFormat("fr-FR", {
       hour: "2-digit",
@@ -19,15 +18,14 @@ function Main() {
 
   const [tweets, setTweets] = useState<TweetProps[]>([]);
   const [loggedUser, setLoggedUser] = useState<User | null>(null);
-  const { register, handleSubmit, reset } = useForm<TweetType>();
-  const [tweetContent, setTweetContent] = useState("");
-  const [tweetImage, setTweetImage] = useState<File | null>(null);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<TweetType>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/tweets');
+        const response = await axios.get('http://localhost:3000/users');
         const users = response.data;
 
         const tweetsData = users.flatMap((user: User) =>
@@ -51,41 +49,36 @@ function Main() {
         console.error("Erreur lors de la récupération des données :", error);
       }
     };
-
     fetchData();
   }, []);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setTweetImage(file);
+  const uploadImageToCloudinary = async () => {
+    const file = document.querySelector<HTMLInputElement>("#fileInput")?.files?.[0];
+    if (!file) return null;
+  
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", "z1fgxln5");
+  
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/diieivx1l/image/upload", formData);
+  
+      const data = response.data;
+      setUploadedImageUrl(data.secure_url);
+      console.log(data);
+      return data.secure_url;
+    } catch (error) {
+      console.error("Erreur lors de l'upload de l'image :", error);
+      return null;
     }
   };
 
-  const uploadImageToCloudinary = async () => {
-    if (!tweetImage) return;
-
-    const formData = new FormData();
-    formData.append("file", tweetImage);
-    formData.append("upload_preset", "z1fgxln5");
-
-    const response = await fetch(
-      "https://api.cloudinary.com/v1_1/diieivx1l/image/upload",
-      {
-        method: "POST",
-        body: formData,
-      }
-    );
-
-    const data = await response.json();
-    setUploadedImageUrl(data.secure_url);
-    return data.secure_url;
-  };
-
   const onSubmit = async (data: TweetType) => {
-    const uploadedImage = tweetImage ? await uploadImageToCloudinary() : "";
-
+    const uploadedImage = data.image ? await uploadImageToCloudinary() : "";
+  
     const newTweet = {
+      id: Math.floor(Math.random() * 1000000000),
       avatar: loggedUser?.profilePicture,
       username: loggedUser?.username,
       name: loggedUser?.name,
@@ -98,11 +91,41 @@ function Main() {
       image: uploadedImage,
     };
 
-    setTweets([newTweet, ...tweets]);
-    reset();
-    setTweetContent("");
-    setTweetImage(null);
-    setUploadedImageUrl(null);
+    const tweetForApi ={
+      tweetId: Math.floor(Math.random() * 1000000000),
+      content: data.content,
+      createdAt: formatDate(new Date()),
+      image: uploadedImage,
+      likes: 0,
+      retweets: 0,
+      comments: 0,
+      numberShare: 0,
+    }
+   
+    if (loggedUser) {
+      const updatedUser = {
+        ...loggedUser,
+        tweets: [tweetForApi, ...loggedUser.tweets],
+      };
+      setLoggedUser(updatedUser);
+      console.log(updatedUser);
+
+      try {
+        await axios.post('http://localhost:3000/users', updatedUser);
+      } catch (error) {
+        console.error("Erreur lors de la mise à jour des données de l'utilisateur :", error);
+      }
+    }
+    
+  
+    try {
+
+      setTweets([newTweet, ...tweets]);
+      reset();
+      setUploadedImageUrl(null);
+    } catch (error) {
+      console.error("Erreur lors de l'ajout du tweet :", error);
+    }
   };
 
   return (
@@ -123,14 +146,23 @@ function Main() {
               <img src={loggedUser.profilePicture} alt="" className="w-12 h-12 rounded-full object-cover" />
             )}
             <input
-              {...register("content", { required: true })}
+              {...register("content", { maxLength: {
+                value: 150,
+                message: "Le contenu du tweet ne doit pas dépasser 150 caractères"
+              },
+              required: "Le contenu du tweet est obligatoire"})}
               type="text"
               placeholder="What's happening?"
               className="outline-none placeholder-graycolor2 w-full border-none bg-black text-white"
-              value={tweetContent}
-              onChange={(e) => setTweetContent(e.target.value)}
             />
           </div>
+          <p className="text-red-500 text-sm p-4">{errors.content?.message}</p>
+
+          {uploadedImageUrl && (
+            <div>
+              <img src={uploadedImageUrl} alt="Aperçu de l'image" className="w-40 h-40" />
+            </div>
+          )}
 
           <div className="flex gap-20 sm:justify-between border-b border-grayColor p-4">
             <div className="h-10 flex justify-center items-center">
@@ -138,12 +170,13 @@ function Main() {
                 <label htmlFor="fileInput" style={{ cursor: "pointer" }}>
                   <img src="/image_twitter/imageIcon.png" alt="" />
                   <input
+                    {...register("image")}
                     id="fileInput"
                     type="file"
                     className="hidden"
-                    onChange={handleImageChange}
                   />
                 </label>
+
                 <img src="/image_twitter/Group.png" alt="" />
                 <img src="/image_twitter/Group.svg" alt="" />
                 <img src="/image_twitter/vectorList.svg" alt="" />
@@ -154,11 +187,9 @@ function Main() {
               <Button
                 color="blue"
                 size="secondary"
-                disabled={!tweetContent.trim()}
+                disabled={!loggedUser}
                 className={
-                  !tweetContent.trim()
-                    ? "bg-blue opacity-50 cursor-not-allowed"
-                    : "bg-blue-500 cursor-pointer"
+                  !loggedUser ? "bg-blue opacity-50 cursor-not-allowed" : "bg-blue-500 cursor-pointer"
                 }
               >
                 Post

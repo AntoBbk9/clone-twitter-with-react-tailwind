@@ -53,9 +53,9 @@ const ProfilePage = () => {
     <div className="w-full sm:w-[40rem] min-h-screen">
       <div className="sticky top-0 border-b border-grayColor px-4 py-2 flex justify-between items-center backdrop-blur-xl bg-black/30 ">
         <div className="flex gap-3 items-center">
-          <Link to="/">
-            <FaArrowLeft />
-          </Link>
+        <Link to="/">
+          <FaArrowLeft />
+        </Link>
           <h1 className="text-xl font-bold">{user.name}</h1>
         </div>
         <span className="text-gray-500">{userTweets.length} posts</span>
@@ -170,7 +170,7 @@ const ProfilePage = () => {
               <Tweet
                 avatar={user.profilePicture}
                 username={user.username}
-                handle={user.name}
+                name={user.name}
                 time={tweet.createdAt}
                 content={tweet.content}
                 image={tweet.image}
