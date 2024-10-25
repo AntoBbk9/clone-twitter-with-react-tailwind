@@ -25,7 +25,7 @@ function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://clone-x-with-react-antobbk9-server.onrender.com');
+        const response = await axios.get('https://clone-x-with-react-antobbk9-server.onrender.com/users');
         const users = response.data;
 
         const tweetsData = users.flatMap((user: User) =>
@@ -111,7 +111,7 @@ function Main() {
       console.log(updatedUser);
 
       try {
-        await axios.post('https://clone-x-with-react-antobbk9-server.onrender.com', updatedUser);
+        await axios.post('https://clone-x-with-react-antobbk9-server.onrender.com/users', updatedUser);
       } catch (error) {
         console.error("Erreur lors de la mise à jour des données de l'utilisateur :", error);
       }
