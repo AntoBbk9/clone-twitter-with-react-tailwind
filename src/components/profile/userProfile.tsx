@@ -3,11 +3,11 @@ import { Link, useParams, Outlet, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import Button from "../button/button";
 import { User } from "./type";
-import { DB } from "../../../database";
 import Icon from "../icon/icon";
 import Tweet from "../tweet/tweet";
 import { TweetType } from "../tweet/type";
 import TabItem from "../tweet/tabItemProps";
+import axios from "axios";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -17,8 +17,9 @@ const ProfilePage = () => {
   const [activeTab, setActiveTab] = useState<string>("posts");
 
   useEffect(() => {
-    const fetchUserData = () => {
-      const foundUser = DB.find((user) => user.username === username);
+    const fetchUserData = async () => {
+      const response = await axios.get(`https://clone-x-with-react-antobbk9-server.onrender.com/users`);
+      const foundUser = response.data.find((u: User) => u.username === username);     
       if (foundUser) {
         setUser(foundUser);
         setUserTweets(foundUser.tweets);

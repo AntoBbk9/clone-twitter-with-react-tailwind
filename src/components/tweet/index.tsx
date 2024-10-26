@@ -40,8 +40,9 @@ function Main() {
             numberRetweet: tweet.retweets,
             numberShare: tweet.numberShare,
             image: tweet.image,
-          }))
+          }))          
         );
+
 
         setTweets(tweetsData);
         setLoggedUser(users[0]);
@@ -111,7 +112,7 @@ function Main() {
       console.log(updatedUser);
 
       try {
-        await axios.post('https://clone-x-with-react-antobbk9-server.onrender.com/users', updatedUser);
+        await axios.put('https://clone-x-with-react-antobbk9-server.onrender.com/users', updatedUser);
       } catch (error) {
         console.error("Erreur lors de la mise à jour des données de l'utilisateur :", error);
       }
