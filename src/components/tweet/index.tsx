@@ -19,13 +19,17 @@ function Main() {
   const [tweets, setTweets] = useState<TweetProps[]>([]);
   const [loggedUser, setLoggedUser] = useState<User | null>(null);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false); 
+  const apiJSONServer = import.meta.env.VITE_URL_API_JSON_SERVER;
+  const apiCloudinary = import.meta.env.VITE_URL_API_CLOUDINARY;
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<TweetType>();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://clone-x-with-react-antobbk9-server.onrender.com/users');
+        setLoading(true); 
+        const response = await axios.get(`${apiJSONServer}`);
         const users = response.data;
 
         const tweetsData = users.flatMap((user: User) =>
@@ -43,7 +47,7 @@ function Main() {
           }))          
         );
 
-
+        setLoading(false); 
         setTweets(tweetsData);
         setLoggedUser(users[0]);
       } catch (error) {
@@ -53,6 +57,10 @@ function Main() {
     fetchData();
   }, []);
 
+  if (loading) {
+    return <p className='flex justify-center items-center'>Chargement...</p>;
+  }
+
   const uploadImageToCloudinary = async () => {
     const file = document.querySelector<HTMLInputElement>("#fileInput")?.files?.[0];
     if (!file) return null;
@@ -60,10 +68,11 @@ function Main() {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "z1fgxln5");
+
   
     try {
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/diieivx1l/image/upload", formData);
+       `${apiCloudinary}`, formData);
   
       const data = response.data;
       setUploadedImageUrl(data.secure_url);
@@ -102,6 +111,8 @@ function Main() {
       comments: 0,
       numberShare: 0,
     }
+
+    const id = loggedUser?.id;
    
     if (loggedUser) {
       const updatedUser = {
@@ -111,8 +122,8 @@ function Main() {
       setLoggedUser(updatedUser);
       console.log(updatedUser);
 
-      try {
-        await axios.put('https://clone-x-with-react-antobbk9-server.onrender.com/users', updatedUser);
+      try {        
+        await axios.put(`${apiJSONServer}/${id}`, updatedUser);        
       } catch (error) {
         console.error("Erreur lors de la mise à jour des données de l'utilisateur :", error);
       }
@@ -120,7 +131,6 @@ function Main() {
     
   
     try {
-
       setTweets([newTweet, ...tweets]);
       reset();
       setUploadedImageUrl(null);

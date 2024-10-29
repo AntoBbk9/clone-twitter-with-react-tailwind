@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "userId": 1,
+      "id": "1",
       "username": "Bradleyortiz",
       "name": "Bradley Ortiz",
       "bio": "Tech enthusiast, coffee lover, and software engineer. Always exploring new ideas and trends in tech.",
@@ -9,6 +9,16 @@
       "followersCount": 1200,
       "followingCount": 800,
       "tweets": [
+        {
+          "tweetId": 908409077,
+          "content": "maman",
+          "createdAt": "09:38",
+          "image": null,
+          "likes": 0,
+          "retweets": 0,
+          "comments": 0,
+          "numberShare": 0
+        },
         {
           "tweetId": 1,
           "content": "Excited to be working on a new React project! Loving the flexibility it provides for building UI components. #React #JavaScript #WebDevelopment",
@@ -52,7 +62,7 @@
       ]
     },
     {
-      "userId": 2,
+      "id": "2",
       "username": "john_doe",
       "name": "John Doe",
       "bio": "Tech enthusiast and coffee lover. Tweets about tech, travel, and life.",
@@ -93,7 +103,7 @@
       ]
     },
     {
-      "userId": 3,
+      "id": "3",
       "username": "jane_smith",
       "name": "Jane Smith",
       "bio": "Digital marketing specialist. Love to travel and take photos.",
@@ -123,7 +133,7 @@
       ]
     },
     {
-      "userId": 4,
+      "id": "4",
       "username": "mark_twain",
       "name": "Mark Twain",
       "bio": "Writer and storyteller. Sharing thoughts on literature and life.",
@@ -161,7 +171,7 @@
       ]
     },
     {
-      "userId": 5,
+      "id": "5",
       "username": "sara_lee",
       "name": "Sara Lee",
       "bio": "Food blogger and recipe creator. Sharing my culinary adventures!",
@@ -199,7 +209,7 @@
       ]
     },
     {
-      "userId": 6,
+      "id": "6",
       "username": "laura_james",
       "name": "Laura James",
       "bio": "Fitness coach and wellness advocate. Helping others achieve their health goals!",
@@ -228,7 +238,7 @@
       ]
     },
     {
-      "userId": 7,
+      "id": "7",
       "username": "chris_martin",
       "name": "Chris Martin",
       "bio": "Gamer and tech geek. Sharing my gaming experiences and reviews.",
@@ -257,7 +267,7 @@
       ]
     },
     {
-      "userId": 8,
+      "id": "8",
       "username": "emily_clark",
       "name": "Emily Clark",
       "bio": "Travel blogger and photographer. Exploring the world, one city at a time!",
@@ -286,7 +296,7 @@
       ]
     },
     {
-      "userId": 9,
+      "id": "9",
       "username": "alex_lee",
       "name": "Alex Lee",
       "bio": "Tech startup founder. Passionate about innovation and entrepreneurship.",

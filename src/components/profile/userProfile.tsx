@@ -33,7 +33,7 @@ const ProfilePage = () => {
     return <p className="text-gray-500">User not found.</p>;
   }
 
-  const isCurrentUserProfile = user.userId === 1;
+  const isCurrentUserProfile = user.id === 1;
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
