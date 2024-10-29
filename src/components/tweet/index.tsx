@@ -57,9 +57,7 @@ function Main() {
     fetchData();
   }, []);
 
-  if (loading) {
-    return <p className='flex justify-center items-center'>Chargement...</p>;
-  }
+  if (loading) return <p>Chargement...</p>;
 
   const uploadImageToCloudinary = async () => {
     const file = document.querySelector<HTMLInputElement>("#fileInput")?.files?.[0];
