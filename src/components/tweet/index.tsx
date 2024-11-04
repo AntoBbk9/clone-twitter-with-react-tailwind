@@ -6,6 +6,7 @@ import axios from "axios";
 import { User } from "../profile/type";
 import { useForm } from "react-hook-form";
 import { TweetType } from "./type";
+import { useLoggedUserContext } from "../context/userContext";
 
 function Main() {
   const formatDate = (date: Date) => {
@@ -17,13 +18,13 @@ function Main() {
   };
 
   const [tweets, setTweets] = useState<TweetProps[]>([]);
-  const [loggedUser, setLoggedUser] = useState<User | null>(null);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false); 
   const apiJSONServer = import.meta.env.VITE_URL_API_JSON_SERVER;
   const apiCloudinary = import.meta.env.VITE_URL_API_CLOUDINARY;
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<TweetType>();
+  const { loggedUser, setLoggedUser } = useLoggedUserContext();
 
   useEffect(() => {
     const fetchData = async () => {

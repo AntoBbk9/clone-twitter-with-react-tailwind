@@ -8,6 +8,7 @@ import Tweet from "../tweet/tweet";
 import { TweetType } from "../tweet/type";
 import TabItem from "../tweet/tabItemProps";
 import axios from "axios";
+import { useLoggedUserContext } from "../context/userContext";
 
 const ProfilePage = () => {
   const { username } = useParams();
@@ -15,25 +16,43 @@ const ProfilePage = () => {
   const [user, setUser] = useState<User | null>(null);
   const [userTweets, setUserTweets] = useState<TweetType[]>([]);
   const [activeTab, setActiveTab] = useState<string>("posts");
+  const [loading, setLoading] = useState<boolean>(false); 
+
+  const apiJSONServer = import.meta.env.VITE_URL_API_JSON_SERVER;
+
+  const { loggedUser, setLoggedUser } = useLoggedUserContext();
+
+
 
   useEffect(() => {
     const fetchUserData = async () => {
-      const response = await axios.get(`https://clone-x-with-react-antobbk9-server.onrender.com/users`);
-      const foundUser = response.data.find((u: User) => u.username === username);     
+      setLoading(true); 
+      const response = await axios.get(`${apiJSONServer}`);
+      const users: User[] = response.data;
+
+      const foundUser = response.data.find((u: User) => u.username === username); 
+    
       if (foundUser) {
         setUser(foundUser);
         setUserTweets(foundUser.tweets);
       }
+      setLoading(false); 
+
+      if (!loggedUser) {
+        const userAtIndexOne = users[0] || null;
+        setLoggedUser(userAtIndexOne);
+      }
     };
 
     fetchUserData();
-  }, [username]);
+  }, [username, loggedUser]);
+
+  if (loading) return <p>Chargement...</p>;
+
 
   if (!user) {
     return <p className="text-gray-500">User not found.</p>;
   }
-
-  const isCurrentUserProfile = user.id === 1;
 
   const handleTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -76,7 +95,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="flex gap-2 justify-end pt-4 pr-4">
-        {isCurrentUserProfile ? (
+        {loggedUser && loggedUser.id === user.id  ? (
           <Button color="black" size="secondary">
             Edit Profile
           </Button>
@@ -115,7 +134,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="border-b border-grayColor flex justify-around">
-        {isCurrentUserProfile ? (
+        {loggedUser && loggedUser.id === user.id ? (
           <>
             <TabItem
               label="Posts"

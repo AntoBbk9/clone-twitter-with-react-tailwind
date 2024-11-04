@@ -6,11 +6,16 @@ import Replie from './components/replie/replie'
 import Media from './components/replie/media'
 import HighLights from './components/replie/highlights'
 import Likes from './components/replie/likes'
+import { LoggedUserContext } from './components/context/userContext'
+import { User } from './components/profile/type'
+import { useState } from 'react'
 
 function App() {
  
+  const [loggedUser, setLoggedUser] = useState<User | null>(null);
 
   return (
+    <LoggedUserContext.Provider value={{loggedUser, setLoggedUser}}>
     <BrowserRouter>
     <Routes>
       <Route path="/" element={<Home />} />
@@ -22,6 +27,7 @@ function App() {
       </Route>
     </Routes>
     </BrowserRouter>
+    </LoggedUserContext.Provider>
   )
 }
 
